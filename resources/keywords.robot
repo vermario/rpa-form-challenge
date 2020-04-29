@@ -18,6 +18,11 @@ Download the excel file and fill the forms based on the data
     FOR     ${person}    IN  @{peopleData}
         Run Keyword And Continue On Failure     Fill and submit the form   ${person}
     END
+    Take screenshot of the results
+    
+    [Teardown]  Close Browser
+    
+
 
 Download the excel file for the challenge locally
     Create Session      rpachalllenge_website      ${BASE_URL}     verify=True
@@ -65,4 +70,10 @@ Fill and submit the form
     Input Text      //*[@ng-reflect-name="labelLastName"]      ${person["last_name"]}
     
     Click button  Submit
+    
+Take screenshot of the results
+    ${congratulations_element}=   Set Variable  css=.congratulations
+    Wait Until Element Is Visible  ${congratulations_element}
+    Wait For Condition  return false  2
+    Capture Element Screenshot  ${congratulations_element}  results.png
     
