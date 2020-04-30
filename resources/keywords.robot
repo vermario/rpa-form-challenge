@@ -1,10 +1,9 @@
 *** Settings ***
-Library           RPA.HTTP
-Library           RPA.Excel.Files
-Library           RPA.Tables
-Library           RPA.FileSystem
-Library           RPA.Browser
 Library           Collections
+Library           RPA.Browser
+Library           RPA.Excel.Files
+Library           RPA.HTTP
+Library           RPA.Tables
 Variables         variables.py
 
 *** Keywords ***
@@ -20,10 +19,10 @@ Download the excel file and fill the forms based on the data
     [Teardown]    Close browser
 
 Download the excel file for the challenge locally
-    HTTP GET    ${EXCEL_FILE_URL}    ${EXCEL_FILE_NAME}
+    HTTP GET    ${EXCEL_FILE_URL}    ${EXCEL_FILE_LOCAL_DOWNLOAD_PATH}
 
 Collect people data from the Excel file
-    Open Workbook    ${EXCEL_FILE_NAME}
+    Open Workbook    ${EXCEL_FILE_LOCAL_DOWNLOAD_PATH}
     ${worksheet}=    Read Worksheet    header=${TRUE}
     ${data_table}=    Create Table    ${worksheet}
     Filter Empty Rows    ${data_table}
