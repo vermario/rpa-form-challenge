@@ -5,7 +5,7 @@ Resource          keywords.robot
 
 *** Tasks ***
 Solve the RPA form challenge
-    Download the excel file for the challenge locally
+    Download the Excel file for the challenge locally
     ${peopleData}=    Collect people data from the Excel file
     Open the RPA challenge website
     Click button    Start

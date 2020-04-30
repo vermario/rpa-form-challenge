@@ -7,7 +7,7 @@ Library           RPA.Tables
 Variables         variables.py
 
 *** Keywords ***
-Download the excel file for the challenge locally
+Download the Excel file for the challenge locally
     HTTP GET    ${EXCEL_FILE_URL}    ${EXCEL_FILE_LOCAL_DOWNLOAD_PATH}
 
 Collect people data from the Excel file
