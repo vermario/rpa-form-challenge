@@ -7,17 +7,6 @@ Library           RPA.Tables
 Variables         variables.py
 
 *** Keywords ***
-Download the excel file and fill the forms based on the data
-    Download the excel file for the challenge locally
-    ${peopleData}=    Collect people data from the Excel file
-    Open the RPA challenge website
-    Start the Challenge
-    FOR    ${person}    IN    @{peopleData}
-        Run Keyword And Continue On Failure    Fill and submit the form for one person    ${person}
-    END
-    Take screenshot of the results
-    [Teardown]    Close browser
-
 Download the excel file for the challenge locally
     HTTP GET    ${EXCEL_FILE_URL}    ${EXCEL_FILE_LOCAL_DOWNLOAD_PATH}
 
@@ -43,9 +32,6 @@ Collect people data from the Excel file
 
 Open the RPA challenge website
     Open Available Browser    ${RPA_CHALLENGE_URL}
-
-Start the Challenge
-    Click button    Start
 
 Fill and submit the form for one person
     [Arguments]    ${person}
