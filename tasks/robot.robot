@@ -1,6 +1,7 @@
 *** Settings ***
-Documentation   Robot to solve the 1st challenge at rpachallenge.com
-Resource        keywords.robot
+Documentation     Robot to solve the first challenge at rpachallenge.com, which consists of
+...               filling
+Resource          keywords.robot
 
 *** Tasks ***
 Solve the rpa challenge

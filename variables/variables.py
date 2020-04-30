@@ -1,7 +1,10 @@
-BASE_URL = 'http://rpachallenge.com/'
-PATH_TO_REMOTE_EXCEL_FILE = 'assets/downloadFiles/challenge.xlsx'
-PATH_TO_LOCAL_EXCEL_FILE = 'output/challenge.xlsx'
+from robot.libraries.OperatingSystem import OperatingSystem
 
+os = OperatingSystem()
+
+# To make sure that the folders stay the same no matter the environment where we execute our robot, we
+# will use the normalize_path function provided by the Operating System robotframework library.
+
+EXCEL_FILE_URL = 'http://rpachallenge.com/assets/downloadFiles/challenge.xlsx'
+EXCEL_FILE_NAME = os.normalize_path(__file__ + "/../../output/challenge.xlsx")
 RPA_CHALLENGE_URL = 'http://rpachallenge.com/'
-BASE_URL = 'https://drive.google.com/'
-PATH_TO_REMOTE_EXCEL_FILE = 'u/0/uc?id=1N8z4FxhqP7S6Onao2-omhaLCErTjaplo&export=download'
